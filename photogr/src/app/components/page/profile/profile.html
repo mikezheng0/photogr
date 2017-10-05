@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <img src="" width="100%"/>
+        </div>
+        <div class="col-6">
+            <div>{{user.firstname}} {{user.lastname}}</div>
+            <user-type [usertype]=user.type></user-type>
+            <user-stats [numberOfPhotos]=user.photos
+                        [numberOfFollowers]=user.followers
+                        [numberOfFollowing]=user.following></user-stats>
+            <ratings [rate]=user.rating></ratings>
+            <user-subscripions></user-subscripions>
+            <h3>Contact Information</h3>
+            <contact-information></contact-information>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h2>Featured Album</h2>
+        </div>
+    </div>
+</div>

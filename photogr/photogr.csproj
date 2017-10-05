@@ -1,16 +1,72 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="src\app\reducers\**" />
+    <Content Remove="src\app\reducers\**" />
+    <EmbeddedResource Remove="src\app\reducers\**" />
+    <None Remove="src\app\reducers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="src\app\components\core\header\header.ts" />
+    <None Remove="src\app\components\common\photo-uploader\photo-uploader.ts" />
+    <None Remove="src\app\components\page\home\home.ts" />
+    <None Remove="src\app\components\core\index.ts" />
+    <None Remove="src\app\components\core\layout\layout.ts" />
+    <None Remove="src\app\components\core\menu\menu.ts" />
+    <None Remove="src\app\components\page\page.module.ts" />
+    <None Remove="src\app\components\photo\detail\detail.ts" />
+    <None Remove="src\app\components\photo\feature-photo\feature-photo.ts" />
+    <None Remove="src\app\components\photo\login.ts" />
+    <None Remove="src\app\route.ts" />
+    <None Remove="src\app\store.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\app\components\photo\photo-item\" />
+    <Folder Include="src\app\components\photo\photo-list\" />
+    <Folder Include="src\app\views\" />
+    <Folder Include="src\app\services\" />
+    <Folder Include="src\assets\images\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\actions\actions.ts" />
+    <TypeScriptCompile Include="src\app\components\common\index.ts" />
+    <TypeScriptCompile Include="src\app\components\common\common.module.ts" />
+    <TypeScriptCompile Include="src\app\components\core\header\header.ts" />
+    <TypeScriptCompile Include="src\app\components\common\photo-uploader\photo-uploader.ts" />
+    <TypeScriptCompile Include="src\app\components\page\home\home.ts" />
+    <TypeScriptCompile Include="src\app\components\core\index.ts" />
+    <TypeScriptCompile Include="src\app\components\core\core.module.ts" />
+    <TypeScriptCompile Include="src\app\components\core\layout\layout.ts" />
+    <TypeScriptCompile Include="src\app\components\core\menu\menu.ts" />
+    <TypeScriptCompile Include="src\app\components\page\page.module.ts" />
+    <TypeScriptCompile Include="src\app\components\page\index.ts" />
+    <TypeScriptCompile Include="src\app\components\photo\create\create.ts" />
+    <TypeScriptCompile Include="src\app\components\photo\detail\detail.ts" />
+    <TypeScriptCompile Include="src\app\components\photo\feature-photo\feature-photo.ts" />
+    <TypeScriptCompile Include="src\app\components\photo\index.ts" />
+    <TypeScriptCompile Include="src\app\components\photo\photo.module.ts" />
+    <TypeScriptCompile Include="src\app\components\user\login.ts" />
+    <TypeScriptCompile Include="src\app\route.ts" />
   </ItemGroup>
 
 </Project>

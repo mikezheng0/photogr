@@ -1,0 +1,63 @@
+<div class="modal-header">
+  <h4 class="modal-title">Upload a photo</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body ">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <photo-uploader></photo-uploader>
+      </div>
+      <div class="col-6">
+        <form connect="newImage">
+          <div class="form-group row">
+            <label for="inputTitle">Title</label>
+            <input type="text"
+                   class="form-control"
+                   id="inputTitle"
+                   aria-describedby="inputTitle"
+                   placeholder="Enter Title"
+                   ngControl
+                   ngModel>
+          </div>
+          <div class="form-group row">
+            <label for="inputDescription">Description</label>
+            <textarea class="form-control"
+                      id="inputDescription"
+                      rows="3"
+                      ngControl
+                      ngModel></textarea>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox"> Enable Selling
+                </label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputPrice">Price</label>
+                <input type="text" class="form-control" id="inputPrice" aria-describedby="photoPrice" placeholder="Enter Price">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="album">Album</label>
+            <select class="form-control" id="album">
+              <option>1</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<div class="modal-footer">
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

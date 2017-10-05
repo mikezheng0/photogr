@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <img id="blah" [src]="url" alt="Please upload an Image" width="100%"/>
+    </div>
+  </div>
+  <div class="row">
+    <label class="custom-file">
+      <input type="file"
+             id="file"
+             (change)="readUrl($event)"
+             class="custom-file-input"
+             ngControl
+             ngModel>
+      <span class="custom-file-control"></span>
+    </label>
+  </div>
+</div>

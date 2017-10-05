@@ -1,0 +1,37 @@
+<div class="modal-header">
+  <h4 class="modal-title">Please sign in</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="form-group">
+      <label for="loginEmail">Email address</label>
+      <input type="email"
+             class="form-control"
+             id="loginEmail"
+             name="email"
+             aria-describedby="emailHelp"
+             placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="loginPassword">Password</label>
+      <input type="password"
+             name="password"
+             class="form-control"
+             id="loginPassword"
+             placeholder="Password">
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input">
+        Remember Me
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>
