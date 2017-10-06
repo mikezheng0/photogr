@@ -5,24 +5,29 @@ import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store'
 
 import { PhotoModule } from '../photo'
 import { AppCommonModule } from '../common'
+import { UserModule } from '../user'
 
-import { HomeComponent } from '../page/home/home'
+import { HomeComponent } from './home/home'
+import { ProfileComponent } from './profile/profile'
 
 @NgModule({
     declarations: [
-        HomeComponent
+        HomeComponent,
+        ProfileComponent
     ],
     imports: [
         NgReduxModule,
         NgbModule,
         PhotoModule,
-        AppCommonModule
+        AppCommonModule,
+        UserModule
     ],
     entryComponents: [
 
     ],
     exports: [
-        HomeComponent
+        HomeComponent,
+        ProfileComponent
     ]
 })
 

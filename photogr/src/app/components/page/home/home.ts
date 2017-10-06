@@ -12,6 +12,7 @@ export class HomeComponent {
     featuredPhoto: IPhoto = {
         id: 1,
         title: 'This is a banner',
+        description: 'some info',
         file: './assets/images/banner.jpg'
     }
     constructor(private modalService: NgbModal) {
