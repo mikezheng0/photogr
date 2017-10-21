@@ -5,7 +5,6 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 import { NgRedux, select } from '@angular-redux/store'
 
 import { IAppState } from './store/model'
-import { INCREMENT } from './actions/actions'
 import { LoginModal } from './components/user/login'
 
 @Component({
@@ -15,8 +14,6 @@ import { LoginModal } from './components/user/login'
 })
 export class AppComponent implements OnInit {
 
-    @select(['counter','counter']) counter
-
     constructor(private ngRedux: NgRedux<IAppState>, private modalService: NgbModal) {
         
     }
@@ -24,12 +21,6 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         
     }
-
-    increment() {
-        this.ngRedux.dispatch({ type: INCREMENT })
-        
-    }
-
     
 }
 

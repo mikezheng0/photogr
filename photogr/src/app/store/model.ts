@@ -1,8 +1,6 @@
-export interface IAppState {
-    counter: ICounter
-}
+import { IPhotoList } from '../components/photo/model';
 
-export interface ICounter {
-    counter: number,
-    router?: any
+export interface IAppState {
+    homepage?: IPhotoList
+    routes?: any
 }

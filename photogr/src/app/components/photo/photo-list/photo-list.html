@@ -1,8 +1,7 @@
 <div class="row">
-  <div class="col-4">
     <photo-item *ngFor="let photo of photos | async; trackBy:getKey"
                 [key]=getKey(null,photo)
-                [photo]="photo">
+                [photoType]="photoType"
+                class="col-md-4">
     </photo-item>
-  </div>
 </div>

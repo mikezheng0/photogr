@@ -5,21 +5,26 @@ import { NgReduxRouterModule, NgReduxRouter } from '@angular-redux/router';
 import { provideReduxForms } from '@angular-redux/form';
 
 import { IAppState } from './model'
-import { rootReducer, INITIAL_STATE } from './reducers'
+import { rootReducer } from './reducers'
+import { RootEpics } from './epics'
 
 @NgModule({
     imports: [NgReduxModule],
-    providers: []
+    providers: [RootEpics]
 })
 
 export class StoreModule {
     constructor(
         ngRedux: NgRedux<IAppState>,
-        ngReduxRouter: NgReduxRouter
+        devTools: DevToolsExtension,
+        ngReduxRouter: NgReduxRouter,
+        rootEpics: RootEpics
     ) {
         ngRedux.configureStore(
             rootReducer,
-            INITIAL_STATE);
+            {}, [...rootEpics.createEpics()],
+            devTools.isEnabled() ? [ devTools.enhancer() ] : []);
+            
         if (ngReduxRouter) {
             ngReduxRouter.initialize();
         }

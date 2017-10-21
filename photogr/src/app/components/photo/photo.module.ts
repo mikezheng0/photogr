@@ -10,8 +10,9 @@ import { FeaturePhotoComponent } from './feature-photo/feature-photo'
 import { PhotoListComponent } from './photo-list/photo-list'
 import { PhotoItemComponent } from './photo-item/photo-item'
 import { CreatePhotoModal } from './create/create'
-
-
+import { PhotoAPIActions } from './actions'
+import { PhotoAPIEpics } from './epics'
+import { PhotoAPIService } from './service'
 @NgModule({
     declarations: [
         FeaturePhotoComponent,
@@ -33,7 +34,8 @@ import { CreatePhotoModal } from './create/create'
         FeaturePhotoComponent,
         PhotoListComponent,
         CreatePhotoModal
-    ]
+    ],
+    providers: [PhotoAPIActions, PhotoAPIEpics, PhotoAPIService]
 })
 
 export class PhotoModule {

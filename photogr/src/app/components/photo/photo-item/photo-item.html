@@ -1,7 +1,9 @@
-<div class="card">
-  <img class="card-img-top" [src]="image.file" alt="Card image cap">
-  <div class="card-block">
-    <button type="button" class="btn btn-outline-primary">comment</button>
-    <button type="button" class="btn btn-outline-primary">favourite</button>
+<div >
+  <div class="card">
+    <img class="card-img-top" [src]="url$ | async" alt="Card image cap">
+    <div class="card-block">
+      <button type="button" class="btn btn-outline-primary">comment</button>
+      <button type="button" class="btn btn-outline-primary">favourite</button>
+    </div>
   </div>
 </div>
