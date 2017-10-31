@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -17,6 +17,7 @@ namespace Photogr
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .UseApplicationInsights()
+                .UseUrls("http://localhost:5000")
                 .Build();
 
             host.Run();

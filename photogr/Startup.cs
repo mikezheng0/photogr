@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Photogr.Services.Persistence;
 using Photogr.Services.Core;
+using AutoMapper;
 using System;
 
 namespace Photogr
@@ -31,9 +32,11 @@ namespace Photogr
       services.AddDbContext<PhotogrContext>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-      services.AddScoped<IPhotoRepository, PhotoRepository>();
       services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+      services.AddScoped<IAlbumRepository, AlbumRepository>();
+      services.AddScoped<IUserRepository, UserRepository>();
+      services.AddScoped<IPhotoRepository, PhotoRepository>();
+      services.AddAutoMapper();
       services.AddMvc();
 
       services.AddAuthentication(options =>

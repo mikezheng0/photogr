@@ -9,9 +9,9 @@ using System.IO;
 using Photogr.Services.Models;
 using Photogr.Services.Core;
 
-namespace photogr.Controllers
+namespace PhotogrSite.Controllers
 {
-  [Route("/api/photos/{photoId}/photos")]
+  [Route("/api/photos/{userId}/{albumId}")]
   public class PhotosController : Controller
   {
     private readonly IHostingEnvironment host;
@@ -25,10 +25,8 @@ namespace photogr.Controllers
     }
 
     [HttpPost]
-    public async Task<IActionResult> UploadAsync(int photoId, IFormFile file)
+    public async Task<IActionResult> UploadAsync(int userId, int albumId, IFormFile file)
     {
-
-      
       string uploadFolderPath = Path.Combine(host.WebRootPath, "uploads");
       if (!Directory.Exists(uploadFolderPath))
       Directory.CreateDirectory(uploadFolderPath);
