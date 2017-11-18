@@ -4,7 +4,7 @@ export const routes = [
         icon: '',
         title: 'Home'
     },{
-        path: 'myphotos',
+        path: 'myphotos/1',
         icon: '',
         title: 'My Photos'
     },{
