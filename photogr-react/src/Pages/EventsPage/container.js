@@ -2,9 +2,11 @@ import React, {Component} from 'react'
 
 export default (WrappedComponent) => 
   class Container extends Component {
+    
+
     render() {
       return (
-        <WrappedComponent {...this._extract()}></WrappedComponent>
+        <WrappedComponent {...this._extract()}/>
       )
     }
     
@@ -12,7 +14,7 @@ export default (WrappedComponent) =>
       return {
         events: this.getEvents(), 
         url: "/event-detail",
-        onAdd: this.onAdd      
+        onAdd: this.onAdd
       }
     }
 

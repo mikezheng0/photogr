@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-
+import {Button} from '../../../Styles'
 const EventItem = ({path, title, onAdd, url, id}) => (
   <div>
     <div>
@@ -10,9 +10,9 @@ const EventItem = ({path, title, onAdd, url, id}) => (
     </div>
     <div>
       <span>{title}</span>
-      <button onClick={onAdd()}>
-        Add
-      </button>
+      <Button onClick={onAdd}>
+        Join
+      </Button>
     </div>
   </div>
 )

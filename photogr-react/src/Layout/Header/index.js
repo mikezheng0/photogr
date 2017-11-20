@@ -4,10 +4,10 @@ import { SearchBar, LoginStatus } from '../../Core'
 class Header extends Component {
     render() {
         return (
-            <div>
+            <header>
                 <SearchBar></SearchBar>
                 <LoginStatus>Login</LoginStatus>
-            </div>  
+            </header>  
         )
     }
 }

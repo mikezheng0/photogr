@@ -3,11 +3,11 @@ import {MenuItem} from '../../Core'
 class Menu extends Component {
     render() {
         return (
-            <div>
+            <nav>
                 {this.props.links.map((route, index)=>(
                     <MenuItem url={this.props.url} key={index} link={route}></MenuItem>
                 ))}
-            </div>  
+            </nav>  
         )
     }
 }

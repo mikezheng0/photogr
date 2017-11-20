@@ -15,7 +15,7 @@ class MainLayout extends Component {
     render() {
         
         return (
-        <div className="App">
+        <main className="App">
             <Header />
             <Menu links={routes} url={this.props.match.url}/>
 
@@ -24,7 +24,7 @@ class MainLayout extends Component {
             <Route path={`${this.props.match.url}myphotos/:userId`} component={UserDetailPage}/>
             <Route path={`${this.props.match.url}events`} component={EventsPage}/>
             <Route path={`${this.props.match.url}event-detail/:eventId`} component={EventDetailPage}/>
-        </div>
+        </main>
         )
     }
 }
