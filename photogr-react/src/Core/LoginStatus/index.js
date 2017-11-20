@@ -1,10 +1,13 @@
 import React from 'react'
 import { Button } from '../../Styles'
+import {LinearLayout, FlexItem, justifyEnd } from '../../Styles'
+
+const EndJustifiedLinearLayout = justifyEnd(LinearLayout)
 
 const LoginStatus = () => (
-    <span>
-        <Button>Login</Button>
-    </span>
+  <EndJustifiedLinearLayout>
+      <Button>Login</Button>
+  </EndJustifiedLinearLayout>
 )
     
 

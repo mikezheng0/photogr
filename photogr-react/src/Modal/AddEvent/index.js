@@ -1,18 +1,18 @@
 import React from 'react'
 import BaseModal from '../Base';
-import {Button, TextInput, LinearLayout, FlexColumn} from '../../Styles'
+import {Button, TextInput, LinearLayout, FlexItem} from '../../Styles'
 
 
 const AddEventModal = (props) => (
   <BaseModal {...props}>
     <LinearLayout>
-      <FlexColumn>
+      <FlexItem>
         <div>
           <img src="" alt=""/>
         </div>
         <Button>Upload</Button>
-      </FlexColumn>
-      <FlexColumn>
+      </FlexItem>
+      <FlexItem>
       <LinearLayout vertical>
         <h4>Info</h4>
         <TextInput type="text" placeholder="Title"/>
@@ -27,7 +27,7 @@ const AddEventModal = (props) => (
         <TextInput type="text" placeholder="ZipCode"/>
         <TextInput type="text" placeholder="State "/>
         </LinearLayout>
-      </FlexColumn>
+      </FlexItem>
     </LinearLayout>
   </BaseModal>
 )

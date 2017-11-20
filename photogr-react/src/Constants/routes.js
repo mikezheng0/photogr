@@ -8,10 +8,6 @@ export const routes = [
         icon: '',
         title: 'My Photos'
     },{
-        path: 'trending',
-        icon: '',
-        title: 'Trending'
-    },{
         path: 'friends',
         icon: '',
         title: 'Friends'

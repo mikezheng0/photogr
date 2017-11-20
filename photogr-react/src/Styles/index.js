@@ -2,7 +2,7 @@ import { Button } from './Button'
 import { TextInput } from './TextInput'
 import * as MenuItemStyle from './MenuItemStyle'
 import {Backdrop, ModalBody} from './Modal'
-import {LinearLayout, FlexColumn} from './Layout'
+import {LinearLayout, FlexItem, justifyEnd, alignRight} from './Layout'
 export {
     Button,
     TextInput,
@@ -10,5 +10,7 @@ export {
     ModalBody,
     Backdrop,
     LinearLayout,
-    FlexColumn
+    FlexItem,
+    justifyEnd,
+    alignRight
 }

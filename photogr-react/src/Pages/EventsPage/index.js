@@ -3,11 +3,22 @@ import Container from './container'
 import {withModal} from  '../../Modal'
 import {EventItem} from '../../Core'
 import {AddEventModal} from '../../Modal'
-import {Button} from '../../Styles'
+import {Button, LinearLayout, FlexItem, alignRight, TextInput} from '../../Styles'
+
+const RightAlignedFlexItem = alignRight(FlexItem)
 
 const EventsComponent = ({events, onAdd, url, openModal, state, handleBodyClick, handleOverlayClick}) => (
   <div>
-      <div>Search: <input type="text" value="" placeholder="filter locations"/></div>
+      <LinearLayout>
+        <FlexItem>
+          Search: <TextInput type="text"  placeholder="filter locations"/>
+        </FlexItem>
+        <RightAlignedFlexItem>
+          <Button onClick={openModal}>
+            Add Event
+          </Button>
+        </RightAlignedFlexItem>
+      </LinearLayout>
       {
         events.map(
           (event)=> 
@@ -18,12 +29,7 @@ const EventsComponent = ({events, onAdd, url, openModal, state, handleBodyClick,
               url= {url}/>
           )
       }
-      <Button onClick={openModal}>
-        Add Event
-      </Button>
-
-      <AddEventModal show={state.isOpen} handleOverlayClick={handleOverlayClick} handleBodyClick={handleBodyClick}>
-      </AddEventModal>
+      <AddEventModal show={state.isOpen} handleOverlayClick={handleOverlayClick} handleBodyClick={handleBodyClick}/>
   </div>
 )
 
