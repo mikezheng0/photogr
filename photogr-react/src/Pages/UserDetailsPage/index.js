@@ -1,9 +1,10 @@
 import React from 'react'
 import Container from './container'
 import {PhotoList} from '../../Core'
-import { LinearLayout, FlexItem } from '../../Styles'
+import { AddPhotoModal, withModal } from '../../Modal'
+import { LinearLayout, FlexItem, Button } from '../../Styles'
 
-const UserDetailsComponent = ({url, user, onClickPhoto}) => (
+const UserDetailsComponent = ({url, user, onClickPhoto, state, handleBodyClick, handleOverlayClick, openModal}) => (
     <LinearLayout vertical>
         <LinearLayout>
           <FlexItem>
@@ -26,7 +27,10 @@ const UserDetailsComponent = ({url, user, onClickPhoto}) => (
             </div>
           </FlexItem>
         </LinearLayout>
-        
+        <FlexItem>
+          <Button onClick={openModal}>New Photo</Button>
+        </FlexItem>
+        <AddPhotoModal state={state} handleOverlayClick={handleOverlayClick} handleBodyClick={handleBodyClick}/>
         <PhotoList
           photos={user.photos}
           url={url}
@@ -36,4 +40,4 @@ const UserDetailsComponent = ({url, user, onClickPhoto}) => (
     </LinearLayout>
 )
 
-export default Container(UserDetailsComponent)
+export default Container(withModal(UserDetailsComponent))

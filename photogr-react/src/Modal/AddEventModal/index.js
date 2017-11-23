@@ -4,7 +4,7 @@ import {Button, TextInput, LinearLayout, FlexItem} from '../../Styles'
 
 
 const AddEventModal = (props) => (
-  <BaseModal {...props}>
+  <BaseModal {...props} show={props.state.isOpen}>
     <LinearLayout>
       <FlexItem>
         <div>

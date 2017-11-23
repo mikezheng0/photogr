@@ -1,12 +1,13 @@
 import React from 'react'
-import { Button } from '../../Styles'
-import {LinearLayout, FlexItem, justifyEnd } from '../../Styles'
-
+import { LinearLayout,  justifyEnd } from '../../Styles'
+import SignUpButton from '../User/SignUpButton'
+import LoginButton from '../User/LoginButton'
 const EndJustifiedLinearLayout = justifyEnd(LinearLayout)
 
-const LoginStatus = () => (
+const LoginStatus = (props) => (
   <EndJustifiedLinearLayout>
-      <Button>Login</Button>
+      <SignUpButton />
+      <LoginButton />
   </EndJustifiedLinearLayout>
 )
     

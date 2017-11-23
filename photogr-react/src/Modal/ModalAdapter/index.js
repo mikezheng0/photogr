@@ -13,8 +13,6 @@ export default (WrappedComponent) =>
     }
     
     openModal(){
-      console.log("toggleModal")
-      
       this.setState({
         isOpen: true
       });
@@ -36,7 +34,6 @@ export default (WrappedComponent) =>
     }
 
     handleBodyClick() {
-      console.log("handlebody")
       this.shouldClose = false
     }
     
