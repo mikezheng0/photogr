@@ -1,6 +1,6 @@
 import React from 'react'
 import PhotoListItem from '../PhotoListItem'
-import {LinearLayout} from '../../Styles'
+import {LinearLayout} from '../../../Styles'
 const PhotoList = ({photos, onClick, url}) => (
     <LinearLayout spaceBetween>
       {

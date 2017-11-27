@@ -6,16 +6,12 @@ import {
     CommentTree 
 } from '../../Core'
 
-const PhotoDetailComponent = (props)=> (
-    <div>
-        {/*
-        <RelatedTags></RelatedTags>
-    */}
-        <PhotoDisplayBanner photo={props.photo}></PhotoDisplayBanner>
-        <AuthorTile user={props.photo.author}></AuthorTile>
-        <CommentTree comments={props.photo.comments}></CommentTree> 
-    </div>
-)
+const PhotoDetailComponent = ({photo})=> 
+  <div>
+    <PhotoDisplayBanner photo={photo}/>
+    {photo.author && <AuthorTile user={photo.author}/>}
+    {photo.comments && <CommentTree comments={photo.comments}/> }
+  </div>
 
 const PhotoDetailPage = PhotoDetailContainer(PhotoDetailComponent)
 

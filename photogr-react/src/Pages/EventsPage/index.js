@@ -19,16 +19,18 @@ const EventsComponent = ({events, onAdd, url, openModal, state, handleBodyClick,
           </Button>
         </RightAlignedFlexItem>
       </LinearLayout>
-      {
-        events.map(
-            event=> 
-              <EventItem 
-                key={event.id} 
-                {...event} 
-                onAdd={onAdd}
-                url= {url}/>
-          )
-      }
+      <LinearLayout horizontal>
+        {
+          events.map(
+              event=> 
+                <EventItem 
+                  key={event.id} 
+                  {...event} 
+                  onAdd={onAdd}
+                  url= {url}/>
+            )
+        }
+      </LinearLayout>
       <AddEventModal state={state} handleOverlayClick={handleOverlayClick} handleBodyClick={handleBodyClick}/>
   </div>
 )

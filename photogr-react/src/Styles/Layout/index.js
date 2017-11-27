@@ -4,10 +4,12 @@ const LinearLayout = styled.div`
 display: flex;
 flex-direction: ${props=> props.vertical ? 'column': 'row'};
 justify-content: ${props=> props.spaceBetween ? 'space-around' : 'space-between'};
-align-items: stretch;
+align-items: ${props=> props.centerAlign ? 'center' : 'stretch'};
+flex-wrap: wrap;
 `
 const FlexItem = styled.div`
   flex: ${props=> props.flex ? props.flex: 1};
+  align-self: ${props => props.right ? 'flex-end':'flex-start'};
 `
 
 const justifyEnd = (component) =>

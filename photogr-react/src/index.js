@@ -5,9 +5,9 @@ import registerServiceWorker from './registerServiceWorker';
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import configureStore from './Data'
 
-let store = createStore(todoApp)
+const store = configureStore()
 
 render(
     <Provider store={store}>

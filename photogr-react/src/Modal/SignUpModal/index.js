@@ -3,8 +3,8 @@ import BaseModal from '../Base';
 import {TextInput, LinearLayout} from '../../Styles'
 
 
-const SignUpModal = (props) => 
-  <BaseModal {...props} show={props.state.isOpen}>
+const SignUpModal = ({state, ...rest}) => 
+  <BaseModal {...rest} show={state.isOpen}>
     <LinearLayout vertical>
       <h2>Sign Up</h2>
       <TextInput type="text" placeholder="Username"/>

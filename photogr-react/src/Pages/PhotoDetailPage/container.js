@@ -1,44 +1,39 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {photoFetchData} from '../../Core/Photo/PhotoList/actions'
 
-export default (WrappedComponent) =>
+export default (WrappedComponent) => {
   class Container extends Component {
-    render() {
-      return <WrappedComponent {...this._extract()}/>
+
+    componentWillMount() {
+      this.props.fetchData("http://5a1c09b5c3630f0012b24281.mockapi.io/photogr/photos/2")
     }
-    
-    _extract(){
-      return {
-        photo : {
-          title: "Sample Title",
-          description: "Some description here",
-          path:"",
-          views: 0,
-          favourites: 0,
-          author: {
-            img: {
-              path: ""
-            },
-            name: "John Smith",
-            type: "professional"
-          },
-          comments: [
-            {
-              id: 1,
-              created: new Date(),
-              score: 5,
-              author: {
-                img: {
-                  path: ""
-                },
-                name: "Bob Smith",
-                type: "professional"
-              },
-              comment: "i hate life",
-              replies: []
-            }
-          ]
-        }
+
+    render() {
+      if (this.props.hasErrored) {
+        return <p>Sorry! There was an error loading the items</p>;
       }
+
+      if (this.props.isLoading) {
+          return <p>Loading…</p>;
+      }
+      return <WrappedComponent {...this.props}/>
     }
   }
 
+  const mapStateToProps = (state) => {
+    return {
+      photo: state.photo,
+      hasErrored: state.photosHasErrored,
+      isLoading: state.photosIsLoading
+    }
+  }
+
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      fetchData: (url) => dispatch(photoFetchData(url))
+    }
+  }
+
+  return connect(mapStateToProps, mapDispatchToProps)(Container)
+}

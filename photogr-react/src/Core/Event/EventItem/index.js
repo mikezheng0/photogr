@@ -1,20 +1,21 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {Button} from '../../../Styles'
+import {Button,Card} from '../../../Styles'
+import { LinearLayout } from '../../../Styles/Layout/index';
 const EventItem = ({path, title, onAdd, url, id}) => (
-  <div>
+  <Card>
     <div>
       <Link to={`${url}/${id}`}>
         <img src={path} alt={title}/>
       </Link>
     </div>
-    <div>
+    <LinearLayout centerAlign>
       <span>{title}</span>
       <Button onClick={onAdd}>
         Join
       </Button>
-    </div>
-  </div>
+    </LinearLayout>
+  </Card>
 )
 
 export default EventItem
