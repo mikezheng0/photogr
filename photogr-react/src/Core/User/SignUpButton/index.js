@@ -1,11 +1,12 @@
-import React from 'react'
-import { SignUpModal, withModal } from '../../../Modal'
-import {Button} from '../../../Styles'
+import React from "react";
+import { SignUpModal, withModal } from "../../../Modal";
+import { Button } from "../../../Styles";
 
-const SignUpButton = (props) =>
+const SignUpButton = ({openModal, ...props}) => (
   <div>
-    <Button onClick={props.openModal}>Sign Up</Button>
-    <SignUpModal {...props}/>
+    <Button onClick={openModal}>Sign Up</Button>
+    <SignUpModal {...props} />
   </div>
+);
 
-export default withModal(SignUpButton)
+export default withModal(SignUpButton);

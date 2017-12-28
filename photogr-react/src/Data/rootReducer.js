@@ -1,11 +1,24 @@
-import { combineReducers } from 'redux';
-import { photos, photo, photosIsLoading, photosHasErrored} from '../Core/Photo/PhotoList/reducers'
-import {users, user, usersIsLoading, usersHasErrored} from '../Core/User/reducers'
+import { combineReducers } from "redux";
+import {
+  photos,
+  photo,
+  photosIsLoading,
+  photosHasErrored
+} from "../Core/Photo/PhotoList/reducers";
+import {
+  users,
+  user,
+  usersIsLoading,
+  usersHasErrored
+} from "../Core/User/reducers";
 
 export default combineReducers({
   photo,
-  photos, 
+  photos,
   photosIsLoading,
   photosHasErrored,
-  users, user, usersIsLoading, usersHasErrored
+  users,
+  user,
+  usersIsLoading,
+  usersHasErrored
 });

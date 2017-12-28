@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react';
 
-export default (WrappedComponent) =>
+export default WrappedComponent =>
   class withModal extends Component {
     constructor(props) {
       super(props);
@@ -9,10 +9,9 @@ export default (WrappedComponent) =>
       this.openModal = this.openModal.bind(this);
       this.handleOverlayClick = this.handleOverlayClick.bind(this);
       this.handleBodyClick = this.handleBodyClick.bind(this);
-      
     }
-    
-    openModal(){
+
+    openModal() {
       this.setState({
         isOpen: true
       });
@@ -23,27 +22,28 @@ export default (WrappedComponent) =>
     }
 
     handleOverlayClick() {
-      if(!this.shouldClose) {
-        this.shouldClose = true
+      if (!this.shouldClose) {
+        this.shouldClose = true;
         return;
-      }
-      else
+      } else
         this.setState({
           isOpen: false
         });
     }
 
     handleBodyClick() {
-      this.shouldClose = false
+      this.shouldClose = false;
     }
-    
+
     render() {
       return (
-        <WrappedComponent {...this.props} 
-          state={this.state} 
-          openModal={this.openModal} 
-          handleOverlayClick={this.handleOverlayClick} 
-          handleBodyClick={this.handleBodyClick}/>
-      )
+        <WrappedComponent
+          {...this.props}
+          state={this.state}
+          openModal={this.openModal}
+          handleOverlayClick={this.handleOverlayClick}
+          handleBodyClick={this.handleBodyClick}
+        />
+      );
     }
-  }
+  };
