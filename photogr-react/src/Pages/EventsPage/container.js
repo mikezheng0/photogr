@@ -31,15 +31,15 @@ export default (WrappedComponent) =>
         } ,{
           id: 1,
           path: "",
-          title: "Toronto Event",
+          title: "Hamilton Event",
         } ,{
           id: 2,
           path: "",
-          title: "London Event",
+          title: "Hamilton Event",
         } ,{
           id: 3,
           path: "",
-          title: "Photography Event",
+          title: "Hamilton Event",
         } 
       ]
     }

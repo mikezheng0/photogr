@@ -16,6 +16,10 @@ const justifyEnd = (component) =>
   styled(component)`
     justify-content: flex-end;
   `
+const justifyStart = (component) =>
+  styled(component)`
+    justify-content: flex-start;
+  `
 
 const alignRight = (component) => 
   styled(component)`
@@ -25,5 +29,6 @@ export {
   LinearLayout, 
   FlexItem,
   justifyEnd,
-  alignRight
+  alignRight,
+  justifyStart
 }

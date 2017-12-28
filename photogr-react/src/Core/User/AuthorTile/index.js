@@ -1,11 +1,12 @@
 import React from 'react'
+import { LinearLayout, Badge, justifyStart } from '../../../Styles';
 
+const JustifyStartLinearLayout = justifyStart(LinearLayout)
 const AuthorTile = ({user}) =>
- <div>
+  <JustifyStartLinearLayout centerAlign>
     <img src={user.img.path} alt={user.name}/>
-    <h4>{user.name}</h4>
-    <p>{user.type}</p>
-  </div>
-
+    <h3>{user.name}</h3>
+    <Badge>{user.type}</Badge>
+  </JustifyStartLinearLayout>
 
 export default AuthorTile

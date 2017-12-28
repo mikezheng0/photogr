@@ -41,7 +41,7 @@ export default (WrappedComponent) =>
                   name: "Bob Smith",
                   type: "professional"
               },
-              comment: "i hate life",
+              comment: "This event is great! thanks for watching",
               replies: []
           }
         ]

@@ -6,7 +6,7 @@ export default (WrappedComponent) => {
   class Container extends Component {
 
     componentWillMount() {
-      this.props.fetchData("http://5a1c09b5c3630f0012b24281.mockapi.io/photogr/photos/2")
+      this.props.fetchData(`http://5a1c09b5c3630f0012b24281.mockapi.io/photogr/photos/${this.props.match.params.photoId}`)
     }
 
     render() {
