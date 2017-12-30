@@ -11,6 +11,12 @@ import {
   usersIsLoading,
   usersHasErrored
 } from "../Core/User/reducers";
+import {
+  events,
+  event,
+  eventsIsLoading,
+  eventsHasErrored
+} from "../Core/Event/reducers";
 
 export default combineReducers({
   photo,
@@ -20,5 +26,9 @@ export default combineReducers({
   users,
   user,
   usersIsLoading,
-  usersHasErrored
+  usersHasErrored,
+  events,
+  event,
+  eventsIsLoading,
+  eventsHasErrored
 });
