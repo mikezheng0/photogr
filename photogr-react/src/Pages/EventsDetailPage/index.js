@@ -25,7 +25,7 @@ const EventDetailComponent = ({
         Event Date: <span>{event.eventDate}</span>
       </div>
     </div>
-    {event.photos && <PhotoList photos={event.photos} url="photo-details" />}
+    {event.photos && <PhotoList photos={event.photos} url="photo-detail" />}
     {event.comment && <CommentTree comments={event.comments} />}
   </div>
 );

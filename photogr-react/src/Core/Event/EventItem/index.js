@@ -5,7 +5,7 @@ import { LinearLayout } from '../../../Styles/Layout/index';
 const EventItem = ({path, title, onAdd, url, id}) => (
   <Card>
     <div>
-      <Link to={`${url}/${id}`}>
+      <Link to={`/${url}/${id}`}>
         <img src={path} alt={title}/>
       </Link>
     </div>

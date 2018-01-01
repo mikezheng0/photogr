@@ -31,7 +31,7 @@ export default (WrappedComponent) => {
         photos: state.photos,
         hasErrored: state.photosHasErrored,
         isLoading: state.photosIsLoading,
-        url: '/photo-detail'
+        url: 'photo-detail'
       }
     }
   

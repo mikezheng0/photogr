@@ -26,7 +26,7 @@ export default WrappedComponent => {
   const mapStateToProps = state => ({
     user: state.user,
     hasErrored: state.usersHasErrored,
-    url: "/photo-detail",
+    url: "photo-detail",
     isLoading: state.usersIsLoading,
     currentUser: state.currentUser
   });

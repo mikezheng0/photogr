@@ -26,7 +26,7 @@ export default WrappedComponent => {
     events: state.events,
     hasErrored: state.eventsHasErrored,
     isLoading: state.eventsIsLoading,
-    url: "/event-detail",
+    url: "event-detail",
     onAdd: () => {}
   });
 

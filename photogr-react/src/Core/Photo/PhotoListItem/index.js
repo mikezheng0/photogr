@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 const PhotoListItem = ({photo, url}) => (
     <Card>
         <div>
-            <Link to={`${url}/${photo.id}`}>
+            <Link to={`/${url}/${photo.id}`}>
                 <img src={photo.path} alt={photo.path}/>
             </Link>
         </div>
