@@ -39,7 +39,7 @@ export default WrappedComponent =>
       return (
         <WrappedComponent
           {...this.props}
-          state={this.state}
+          isOpen={this.state.isOpen}
           openModal={this.openModal}
           handleOverlayClick={this.handleOverlayClick}
           handleBodyClick={this.handleBodyClick}

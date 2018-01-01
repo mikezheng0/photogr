@@ -4,10 +4,10 @@ import SignUpButton from "../User/SignUpButton";
 import LoginButton from "../User/LoginButton";
 const EndJustifiedLinearLayout = justifyEnd(LinearLayout);
 
-const LoginStatus = props => (
+const LoginStatus = ({handleLogin, handleSignUp}) => (
   <EndJustifiedLinearLayout>
-    <SignUpButton />
-    <LoginButton />
+    <SignUpButton handleSignUp={handleSignUp}/>
+    <LoginButton handleLogin={handleLogin}/>
   </EndJustifiedLinearLayout>
 );
 

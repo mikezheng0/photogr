@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
 import { eventsFetchData } from '../../Core/Event/actions'
+import { BASE_URL, EVENTS } from "../../Configurations"
 
 export default WrappedComponent => {
   class Container extends Component {
     componentDidMount() {
-      this.props.fetchData("https://5a1c09b5c3630f0012b24281.mockapi.io/photogr/events");
+      this.props.fetchData(`${BASE_URL}/${EVENTS}`);
     }
 
     render() {

@@ -17,7 +17,12 @@ import {
   eventsIsLoading,
   eventsHasErrored
 } from "../Core/Event/reducers";
-
+import {
+  currentUser,
+  currentUserIsLoggedIn,
+  currentUserLoginHasErrored,
+  currentUserLoginIsLoading
+} from "../Core/LoginStatus/reducers"
 export default combineReducers({
   photo,
   photos,
@@ -30,5 +35,9 @@ export default combineReducers({
   events,
   event,
   eventsIsLoading,
-  eventsHasErrored
+  eventsHasErrored,
+  currentUser,
+  currentUserIsLoggedIn,
+  currentUserLoginHasErrored,
+  currentUserLoginIsLoading
 });

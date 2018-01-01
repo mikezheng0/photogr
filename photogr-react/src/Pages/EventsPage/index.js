@@ -18,7 +18,7 @@ const EventsComponent = ({
   onAdd,
   url,
   openModal,
-  state,
+  isOpen,
   handleBodyClick,
   handleOverlayClick
 }) => (
@@ -37,7 +37,7 @@ const EventsComponent = ({
       ))}
     </LinearLayout>
     <AddEventModal
-      state={state}
+      isOpen={isOpen}
       handleOverlayClick={handleOverlayClick}
       handleBodyClick={handleBodyClick}
     />

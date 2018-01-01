@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {userFetchData} from '../../Core/User/actions'
+import { BASE_URL, USERS } from "../../Configurations"
 
 export default (WrappedComponent) => {
   class Container extends Component {
     componentWillMount() {
-      this.props.fetchData(`http://5a1c09b5c3630f0012b24281.mockapi.io/photogr/user/1`)
+      this.props.fetchData(`${BASE_URL}/${USERS}/1`)
     }
     
     render() {

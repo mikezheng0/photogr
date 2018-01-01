@@ -2,15 +2,25 @@ import React from "react";
 import BaseModal from "../Base";
 import { TextInput, LinearLayout, Button, FlexItem } from "../../Styles";
 
-const LoginModal = ({ state, ...rest }) => (
-  <BaseModal {...rest} show={state.isOpen}>
+const LoginModal = ({ isOpen, handleLogin, ...rest }) => (
+  <BaseModal {...rest} show={isOpen}>
     <LinearLayout vertical>
-      <h2>Login</h2>
-      <TextInput type="text" placeholder="Login" />
-      <TextInput type="password" placeholder="Password" />
-      <FlexItem>
-        <Button>Login</Button>
-      </FlexItem>
+      <form onSubmit={handleLogin}>
+        <h2>Login</h2>
+        <TextInput
+          name="username"
+          type="text"
+          placeholder="Login"
+        />
+        <TextInput
+          name="password"
+          type="password"
+          placeholder="Password"
+        />
+        <FlexItem>
+          <Button type="submit">Login</Button>
+        </FlexItem>
+      </form>
     </LinearLayout>
   </BaseModal>
 );

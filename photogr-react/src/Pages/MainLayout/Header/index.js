@@ -1,20 +1,30 @@
-import React from 'react'
-import { SearchBar, LoginStatus } from '../../../Core'
-import { LinearLayout, FlexItem } from '../../../Styles'
-import HeaderContainer from './container'
+import React from "react";
+import { SearchBar, LoginStatus } from "../../../Core";
+import { LinearLayout, FlexItem } from "../../../Styles";
+import HeaderContainer from "./container";
 
-const HeaderComponent =  ({handleSignUp, openModal}) => 
-(
+const HeaderComponent = ({
+  isLoggedIn,
+  handleSignUp,
+  openModal,
+  handleLogin
+}) => (
   <header>
     <LinearLayout spaceBetween>
-      <FlexItem >
-        <SearchBar></SearchBar>
+      <FlexItem>
+        <SearchBar />
       </FlexItem>
-      <FlexItem >
-        <LoginStatus handleSignUp={handleSignUp}>Login</LoginStatus>
+      <FlexItem>
+        {isLoggedIn ? (
+          <div>logged in</div>
+        ) : (
+          <LoginStatus handleSignUp={handleSignUp} handleLogin={handleLogin}>
+            Login
+          </LoginStatus>
+        )}
       </FlexItem>
     </LinearLayout>
-  </header>  
-)
+  </header>
+);
 
-export default HeaderContainer(HeaderComponent)
+export default HeaderContainer(HeaderComponent);

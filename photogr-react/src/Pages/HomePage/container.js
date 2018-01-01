@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { photosFetchData } from '../../Core/Photo/PhotoList/actions'
+import { BASE_URL, PHOTOS } from "../../Configurations"
 
 export default (WrappedComponent) => {
     class Container extends Component {
 
       componentDidMount () {
-        this.props.fetchData("https://5a1c09b5c3630f0012b24281.mockapi.io/photogr/photos")
+        this.props.fetchData(`${BASE_URL}/${PHOTOS}`)
       }
 
       render() {
