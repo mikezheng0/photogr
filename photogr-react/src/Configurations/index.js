@@ -3,7 +3,9 @@ import {
   LOGIN,
   EVENTS,
   USERS,
-  PHOTOS
+  PHOTOS,
+  SIGN_UP,
+  LOGOUT
 } from "./APIEndpoints";
 
 export {
@@ -11,5 +13,7 @@ export {
   LOGIN,
   EVENTS,
   USERS,
-  PHOTOS
+  PHOTOS,
+  SIGN_UP,
+  LOGOUT
 }

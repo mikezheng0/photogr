@@ -1,30 +1,33 @@
-import React from 'react'
-import Container from './container'
-import {PhotoList, CommentTree} from '../../Core'
+import React from "react";
+import Container from "./container";
+import { PhotoList, CommentTree } from "../../Core";
 
-const EventDetailComponent = ({title, description, location, created, eventDate, photos, comments}) => (
+const EventDetailComponent = ({
+  event
+}) => (
   <div>
-    <h1>{title}</h1>
-    <h3>{description}</h3>
+    
+    <h1>{event.title}</h1>
+    <h3>{event.description}</h3>
     <div>
       <h4>Location</h4>
+     {event.location && <div>
+        <div>Street Address: {event.location.streetAddress}</div>
+        <div>Postal Code: {event.location.postalCode}</div>
+        <div>City: {event.location.city}</div>
+        <div>Province: {event.location.state}</div>
+        <div>Country: {event.location.country}</div>
+      </div>}
       <div>
-        <div>Street Address: {location.streetAddress}</div>
-        <div>Postal Code: {location.posrtalCode}</div>
-        <div>City: {location.city}</div>
-        <div>Province: {location.state}</div>
-        <div>Country: {location.country}</div>
+        Created: <span>{event.created}</span>
       </div>
       <div>
-        Created: <span>{created.toString()}</span>
-      </div>
-      <div>
-        Event Date: <span>{eventDate.toString()}</span>
+        Event Date: <span>{event.eventDate}</span>
       </div>
     </div>
-    <PhotoList photos={photos} url="photo-details"/>
-    <CommentTree comments={comments} />
+    {event.photos && <PhotoList photos={event.photos} url="photo-details" />}
+    {event.comment && <CommentTree comments={event.comments} />}
   </div>
-)
+);
 
-export default Container(EventDetailComponent)
+export default Container(EventDetailComponent);

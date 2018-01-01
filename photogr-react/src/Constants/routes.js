@@ -4,13 +4,15 @@ export const routes = [
         icon: '',
         title: 'Home'
     },{
-        path: 'myphotos/1',
+        path: 'myphotos',
         icon: '',
-        title: 'My Photos'
+        title: 'My Photos',
+        requiresAuth: true
     },{
         path: 'friends',
         icon: '',
-        title: 'Friends'
+        title: 'Friends',
+        requiresAuth: true
     },{
         path: 'events',
         icon: '',

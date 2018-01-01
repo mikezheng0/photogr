@@ -8,14 +8,14 @@ import {
 export function eventsHasErrored(bool) {
   return {
     type: EVENTS_HAS_ERRORED,
-    hasErrored: bool
+    eventsHasErrored: bool
   }
 }
 
 export function eventsIsLoading(bool) {
   return {  
     type: EVENTS_ARE_LOADING,
-    isLoading: bool
+    eventsIsLoading: bool
   }
 }
 
@@ -68,7 +68,7 @@ export function eventFetchData(url) {
         return response
       })
       .then((response) => response.json())
-      .then((event)=>dispatch(eventFetchDataSuccess(event)))
+      .then((event)=> dispatch(eventFetchDataSuccess(event)))
       .catch(()=>dispatch(eventsHasErrored(true)))
   }
 }

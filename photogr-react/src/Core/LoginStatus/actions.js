@@ -48,3 +48,27 @@ export const login = (url, form) => dispatch => {
     })
     .catch(() => dispatch(currentUserLoginHasErrored(true)));
 };
+
+export const signUp = (url, form) => dispatch => {
+  fetch(url, {
+    method: "POST",
+    body: form
+  })
+    .then(response => {
+      if (!response.ok) throw Error(response.statusText);
+
+      dispatch(currentUserLoginIsLoading(false));
+
+      return response;
+    })
+    .then(response => response.json())
+    .then(user => {
+      if (user.success === true) dispatch(currentUserIsLoggedIn(user.success));
+      console.log(user);
+    })
+    .catch(() => {});
+};
+
+export const logout = (url, form) => dispatch => {
+  dispatch(currentUserIsLoggedIn(false));
+};

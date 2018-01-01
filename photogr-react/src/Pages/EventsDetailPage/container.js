@@ -1,50 +1,35 @@
-import React, {Component} from 'react'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { eventFetchData } from "../../Core/Event/actions";
+import { BASE_URL, EVENTS } from "../../Configurations";
 
-export default (WrappedComponent) => 
+export default WrappedComponent => {
   class Container extends Component {
-    render() {
-      return (
-        <WrappedComponent {...this._extract()}/>
-      )
+    componentDidMount() {
+      this.props.fetchData(
+        `${BASE_URL}/${EVENTS}/${this.props.match.params.eventId}`
+      );
     }
-    _extract() {
-      return {
-        title: "Hamilton Event",
-        description: "This events is for photographers in the Hamilton area",
-        location: {
-          streetAddress: "123 fake st",
-          postalCode: "1l1l1l",
-          city: "Hamilton",
-          state: "Ontario",
-          country: "Canada"
-        }, 
-        created: new Date(),
-        eventDate: new Date(),
-        photos: [
-          {
-            path:"",
-            id: 1
-          },{
-            path:"",
-            id: 2
-          }
-        ],
-        comments: [
-          {
-              id: 1,
-              created: new Date(),
-              score: 5,
-              author: {
-                  img: {
-                      path: ""
-                  },
-                  name: "Bob Smith",
-                  type: "professional"
-              },
-              comment: "This event is great! thanks for watching",
-              replies: []
-          }
-        ]
-      }
+
+    render() {
+      if (this.props.hasErrored)
+        return <p>Sorry! There was an error loading the items</p>;
+
+      if (this.props.isLoading) return <p>Loading…</p>;
+      
+      return <WrappedComponent {...this.props} />;
     }
   }
+
+  const mapStateToProps = state => ({
+    event: state.event,
+    hasErrored: state.eventsHasErrored,
+    isLoading: state.eventsIsLoading
+  });
+
+  const mapDispatchToProps = dispatch => ({
+    fetchData: url => dispatch(eventFetchData(url))
+  });
+
+  return connect(mapStateToProps, mapDispatchToProps)(Container);
+};

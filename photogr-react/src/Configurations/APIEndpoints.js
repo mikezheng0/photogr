@@ -3,11 +3,15 @@ const LOGIN = "login";
 const EVENTS = "events";
 const USERS = "user";
 const PHOTOS = "photos";
+const SIGN_UP = "signUp";
+const LOGOUT = "logout";
 
 export {
   BASE_URL,
   LOGIN,
   EVENTS,
   USERS,
-  PHOTOS
+  PHOTOS,
+  SIGN_UP,
+  LOGOUT
 }

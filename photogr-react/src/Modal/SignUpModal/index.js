@@ -7,9 +7,19 @@ const SignUpModal = ({ isOpen, handleSignUp, ...rest }) => (
     <LinearLayout vertical>
       <form onSubmit={handleSignUp}>
         <h2>Sign Up</h2>
-        <TextInput name="username" type="text" placeholder="Username" />
-        <TextInput name="password" type="password" placeholder="Password" />
-        <TextInput name="confirmPassword" type="password" placeholder="Confirm Password" />
+        <TextInput 
+          name="username" 
+          type="text" 
+          placeholder="Username" />
+        <TextInput 
+          name="password" 
+          type="password" 
+          placeholder="Password" />
+        <TextInput
+          name="confirmPassword"
+          type="password"
+          placeholder="Confirm Password"
+        />
         <FlexItem>
           <Button type="submit">Sign Up</Button>
         </FlexItem>

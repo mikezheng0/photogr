@@ -28,7 +28,7 @@ class MainLayout extends Component {
             <FlexItem flex={5}>
               <Route path={`${this.props.match.url}home`} component={HomePage}/>
               <Route path={`${this.props.match.url}photo-detail/:photoId`} component={PhotoDetailPage}/>
-              <Route path={`${this.props.match.url}myphotos/:userId`} component={UserDetailPage}/>
+              <Route path={`${this.props.match.url}myphotos/:userId?`} component={UserDetailPage}/>
               <Route path={`${this.props.match.url}events`} component={EventsPage}/>
               <Route path={`${this.props.match.url}event-detail/:eventId`} component={EventDetailPage}/>
             </FlexItem>

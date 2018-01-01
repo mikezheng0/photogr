@@ -1,42 +1,39 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {userFetchData} from '../../Core/User/actions'
-import { BASE_URL, USERS } from "../../Configurations"
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { userFetchData } from "../../Core/User/actions";
+import { BASE_URL, USERS } from "../../Configurations";
 
-export default (WrappedComponent) => {
+export default WrappedComponent => {
   class Container extends Component {
     componentWillMount() {
-      this.props.fetchData(`${BASE_URL}/${USERS}/1`)
+      let userId = this.props.match.params.userId;
+      if (!(userId >= 0)) userId = this.props.currentUser.id;
+      this.props.fetchData(`${BASE_URL}/${USERS}/${userId}`);
     }
-    
+
     render() {
-      if (this.props.hasErrored) {
+      if (this.props.hasErrored)
         return <p>Sorry! There was an error loading the items</p>;
-      }
 
-      if (this.props.isLoading) {
-          return <p>Loading…</p>;
-      }
-      return (
-        <WrappedComponent {...this.props}/>
-      )
+      if (this.props.isLoading) return <p>Loading…</p>;
+
+      return <WrappedComponent {...this.props} />;
     }
 
-    onClickPhoto() {
-        
-    }
+    onClickPhoto() {}
   }
 
-  const mapStateToProps = (state) => ({
+  const mapStateToProps = state => ({
     user: state.user,
     hasErrored: state.usersHasErrored,
-    url: '/photo-detail',
-    isLoading: state.usersIsLoading
-  })
+    url: "/photo-detail",
+    isLoading: state.usersIsLoading,
+    currentUser: state.currentUser
+  });
 
-  const mapDispatchToProps= (dispatch) => ({
-    fetchData: (url) => dispatch(userFetchData(url)),
+  const mapDispatchToProps = dispatch => ({
+    fetchData: url => dispatch(userFetchData(url)),
     onClickPhoto: this.onClickPhoto
-  })
-  return connect(mapStateToProps,mapDispatchToProps)(Container)
-}
+  });
+  return connect(mapStateToProps, mapDispatchToProps)(Container);
+};

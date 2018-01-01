@@ -6,8 +6,9 @@ import HeaderContainer from "./container";
 const HeaderComponent = ({
   isLoggedIn,
   handleSignUp,
-  openModal,
-  handleLogin
+  handleLogout,
+  handleLogin,
+  openModal
 }) => (
   <header>
     <LinearLayout spaceBetween>
@@ -15,13 +16,12 @@ const HeaderComponent = ({
         <SearchBar />
       </FlexItem>
       <FlexItem>
-        {isLoggedIn ? (
-          <div>logged in</div>
-        ) : (
-          <LoginStatus handleSignUp={handleSignUp} handleLogin={handleLogin}>
-            Login
-          </LoginStatus>
-        )}
+        <LoginStatus
+          isLoggedIn={isLoggedIn}
+          handleLogout={handleLogout}
+          handleSignUp={handleSignUp}
+          handleLogin={handleLogin}
+        />
       </FlexItem>
     </LinearLayout>
   </header>

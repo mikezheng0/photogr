@@ -8,7 +8,7 @@ import {
 export function eventsHasErrored(state = false, action) {
   switch (action.type) {
     case EVENTS_HAS_ERRORED:
-      return action.hasErrored;
+      return action.eventsHasErrored;
     default:
       return state;
   }
@@ -17,7 +17,7 @@ export function eventsHasErrored(state = false, action) {
 export function eventsIsLoading(state = false, action) {
   switch (action.type) {
     case EVENTS_ARE_LOADING:
-      return action.isLoading;
+      return action.eventsIsLoading;
     default:
       return state;
   }
