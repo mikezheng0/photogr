@@ -11,9 +11,12 @@ namespace Photogr.Services.Models
 
         public ICollection<Album> Albums { get; set; }
 
+        public ICollection<Event> Events { get; set; }
+
         public User()
         {
             Albums = new Collection<Album>();
+            Events = new Collection<Event>();
         }
 
     }

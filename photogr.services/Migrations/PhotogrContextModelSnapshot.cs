@@ -39,7 +39,35 @@ namespace Photogr.Services.Migrations
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("Album");
+                    b.ToTable("Albums");
+                });
+
+            modelBuilder.Entity("Photogr.Services.Models.Event", b =>
+                {
+                    b.Property<int>("EventID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<long>("Clicks");
+
+                    b.Property<DateTime>("CreationDate");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("ImagePath");
+
+                    b.Property<DateTime>("LastUpdatedDate");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("UserID");
+
+                    b.HasKey("EventID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Events");
                 });
 
             modelBuilder.Entity("Photogr.Services.Models.Photo", b =>
@@ -67,7 +95,7 @@ namespace Photogr.Services.Migrations
 
                     b.HasIndex("AlbumID");
 
-                    b.ToTable("Photo");
+                    b.ToTable("Photos");
                 });
 
             modelBuilder.Entity("Photogr.Services.Models.User", b =>
@@ -77,13 +105,20 @@ namespace Photogr.Services.Migrations
 
                     b.HasKey("UserID");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Photogr.Services.Models.Album", b =>
                 {
                     b.HasOne("Photogr.Services.Models.User")
                         .WithMany("Albums")
+                        .HasForeignKey("UserID");
+                });
+
+            modelBuilder.Entity("Photogr.Services.Models.Event", b =>
+                {
+                    b.HasOne("Photogr.Services.Models.User")
+                        .WithMany("Events")
                         .HasForeignKey("UserID");
                 });
 

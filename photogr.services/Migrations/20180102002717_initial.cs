@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace Photogr.Services.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Users",
                 columns: table => new
                 {
                     UserID = table.Column<int>(type: "int", nullable: false)
@@ -18,30 +18,59 @@ namespace Photogr.Services.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.UserID);
+                    table.PrimaryKey("PK_Users", x => x.UserID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Album",
+                name: "Albums",
                 columns: table => new
                 {
                     AlbumID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastUpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Album", x => x.AlbumID);
+                    table.PrimaryKey("PK_Albums", x => x.AlbumID);
                     table.ForeignKey(
-                        name: "FK_Album_User_UserID",
+                        name: "FK_Albums_Users_UserID",
                         column: x => x.UserID,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "UserID",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Photo",
+                name: "Events",
+                columns: table => new
+                {
+                    EventID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Clicks = table.Column<long>(type: "bigint", nullable: false),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImagePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastUpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    UserID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Events", x => x.EventID);
+                    table.ForeignKey(
+                        name: "FK_Events_Users_UserID",
+                        column: x => x.UserID,
+                        principalTable: "Users",
+                        principalColumn: "UserID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Photos",
                 columns: table => new
                 {
                     PhotoID = table.Column<int>(type: "int", nullable: false)
@@ -56,36 +85,44 @@ namespace Photogr.Services.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Photo", x => x.PhotoID);
+                    table.PrimaryKey("PK_Photos", x => x.PhotoID);
                     table.ForeignKey(
-                        name: "FK_Photo_Album_AlbumID",
+                        name: "FK_Photos_Albums_AlbumID",
                         column: x => x.AlbumID,
-                        principalTable: "Album",
+                        principalTable: "Albums",
                         principalColumn: "AlbumID",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Album_UserID",
-                table: "Album",
+                name: "IX_Albums_UserID",
+                table: "Albums",
                 column: "UserID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Photo_AlbumID",
-                table: "Photo",
+                name: "IX_Events_UserID",
+                table: "Events",
+                column: "UserID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Photos_AlbumID",
+                table: "Photos",
                 column: "AlbumID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Photo");
+                name: "Events");
 
             migrationBuilder.DropTable(
-                name: "Album");
+                name: "Photos");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Albums");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }
