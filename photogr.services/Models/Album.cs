@@ -12,11 +12,10 @@ namespace Photogr.Services.Models
         public string Description { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime LastUpdatedDate { get; set; }
-        public ICollection<Photo> Photos { get; set; }
 
-        public Album()
-        {
-            Photos = new Collection<Photo>();
-        }
+        public ICollection<Photo> Photos { get; set; }
+        public int UserID { get; set; }
+        public User User { get; set; }
+        
     }
 }

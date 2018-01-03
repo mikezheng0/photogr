@@ -17,10 +17,32 @@ namespace Photogr.Services.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Photo>().ToTable("Photos");
-            modelBuilder.Entity<Album>().ToTable("Albums");
             modelBuilder.Entity<User>().ToTable("Users");
-            modelBuilder.Entity<Event>().ToTable("Events");
+            modelBuilder.Entity<Event>()
+                .ToTable("Events")
+                .HasOne(e => e.User)
+                    .WithMany(u => u.Events)
+                    .HasForeignKey(u => u.UserID);
+
+            modelBuilder.Entity<Album>()
+                .ToTable("Albums")
+                .HasOne(a => a.User)
+                    .WithMany(u => u.Albums)
+                    .HasForeignKey(u => u.UserID);
+
+            modelBuilder.Entity<Photo>()
+                .ToTable("Photos")
+                .HasOne(p => p.Album)
+                    .WithMany(u => u.Photos)
+                    .HasForeignKey(p => p.AlbumID)
+                    .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Photo>()
+                .ToTable("Photos")
+                .HasOne(p => p.User)
+                    .WithMany(u => u.Photos)
+                    .HasForeignKey(p => p.UserID);
+
 
         }
     }

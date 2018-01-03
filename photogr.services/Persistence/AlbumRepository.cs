@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Photogr.Services.Models;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Photogr.Services.Persistence
 {
@@ -19,6 +21,13 @@ namespace Photogr.Services.Persistence
         public void Add(Album album)
         {
             context.Add(album);
+        }
+
+        public async Task<Album> GetAlbumAsync(int id)
+        {
+            return await context.Albums
+                .Include(a => a.Photos)
+                .SingleOrDefaultAsync(a => a.AlbumID == id);
         }
     }
 }

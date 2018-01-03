@@ -25,6 +25,7 @@ namespace Photogr.Services.Persistence
         public async Task<Photo> GetPhotoAsync(int id)
         {
             return await context.Photos
+                .Include(p => p.User)
                 .SingleOrDefaultAsync(p => p.PhotoID == id);
         }
 

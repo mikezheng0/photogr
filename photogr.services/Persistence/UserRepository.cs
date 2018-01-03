@@ -2,6 +2,7 @@
 using Photogr.Services.Core;
 using Photogr.Services.Data;
 using Photogr.Services.Models;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Photogr.Services.Persistence
@@ -23,7 +24,10 @@ namespace Photogr.Services.Persistence
         public async Task<User> GetUserAsync(int id)
         {
             return await context.Users
-                .SingleOrDefaultAsync(u => u.UserID == id);
+             .Include(u => u.Events)
+             .Include(u => u.Albums)
+                .ThenInclude(a => a.Photos)
+             .SingleOrDefaultAsync(u => u.UserID == id);
         }
     }
 }

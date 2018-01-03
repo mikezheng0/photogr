@@ -11,9 +11,10 @@ using System;
 namespace Photogr.Services.Migrations
 {
     [DbContext(typeof(PhotogrContext))]
-    partial class PhotogrContextModelSnapshot : ModelSnapshot
+    [Migration("20180102212055_keys")]
+    partial class keys
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,7 +76,7 @@ namespace Photogr.Services.Migrations
                     b.Property<int>("PhotoID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AlbumID");
+                    b.Property<int>("AlbumID");
 
                     b.Property<long>("Clicks");
 
@@ -89,17 +90,11 @@ namespace Photogr.Services.Migrations
 
                     b.Property<DateTime>("LastUpdatedDate");
 
-                    b.Property<bool>("Private");
-
                     b.Property<string>("Title");
-
-                    b.Property<int?>("UserID");
 
                     b.HasKey("PhotoID");
 
                     b.HasIndex("AlbumID");
-
-                    b.HasIndex("UserID");
 
                     b.ToTable("Photos");
                 });
@@ -135,11 +130,7 @@ namespace Photogr.Services.Migrations
                     b.HasOne("Photogr.Services.Models.Album", "Album")
                         .WithMany("Photos")
                         .HasForeignKey("AlbumID")
-                        .OnDelete(DeleteBehavior.SetNull);
-
-                    b.HasOne("Photogr.Services.Models.User", "User")
-                        .WithMany("Photos")
-                        .HasForeignKey("UserID");
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

@@ -16,5 +16,7 @@ namespace Photogr.Services.Models
         public Int64 Clicks { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime LastUpdatedDate { get; set; }
+        public int UserID { get; set; }
+        public User User { get; set; }
     }
 }

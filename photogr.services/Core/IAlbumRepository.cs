@@ -9,5 +9,6 @@ namespace Photogr.Services.Core
     public interface IAlbumRepository
     {
         void Add(Album album);
+        Task<Album> GetAlbumAsync(int id);
     }
 }

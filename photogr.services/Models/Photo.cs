@@ -14,7 +14,15 @@ namespace Photogr.Services.Models
         public string Description { get; set; }
         public string Title { get; set; }
         public Int64 Clicks { get; set; }
+        public Boolean Private { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime LastUpdatedDate { get; set; }
+
+        public int? UserID { get; set; }
+        public User User { get; set; }
+
+        public int? AlbumID { get; set; }
+        public Album Album { get; set; }
+
     }
 }
